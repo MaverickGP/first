@@ -1,0 +1,48 @@
+//Program to add student objects and sort them according to name and roll number
+
+import java.util.*;
+
+//main method
+class  EmpTreeSet {
+	public static void main (String args []){
+			Employee e1 = new Employee ("Amar", 7);
+			Employee e2 = new Employee ("Bhuvan", 5);
+			Employee e3 = new Employee ("Chatur", 9);
+			Employee e4 = new Employee ("Deep", 6);
+			TreeSet t = new TreeSet();
+			t.add(e1);
+			t.add(e2);
+			t.add(e3);
+			t.add(e4);
+			System.out.println(t);
+	}
+}
+
+
+//Sorting according to roll number
+class Employee implements Comparable {
+	//Defining the constructor
+	int roll;
+	String name;
+	Employee (String name, int roll) {
+		this.roll = roll;
+		this.name = name;
+	}
+
+	//Defining the sorting method
+	public int compareTo (Object ob) {
+		int roll1 = this.roll;
+		Employee e = (Employee) ob;
+		int roll2 = e.roll;
+
+		if (roll1 < roll2) return -1;
+		else if (roll1 < roll2) return 1;
+		else return 0;
+	}
+
+
+	//Defining output
+	public String toString() {
+		return name+": "+roll;
+	}
+}
